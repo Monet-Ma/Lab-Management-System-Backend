@@ -64,12 +64,12 @@ public class SeatController {
      *
      * @param seatPOJO 机位对象
      */
-    @CrossOrigin
-    @PostMapping("/api/seat/update")
-    public Result update(@RequestBody SeatPOJO seatPOJO) {
-        seatService.changeSeatState(seatPOJO);
-        return ResultFactory.buildSuccessResult_p("修改成功", null);
-    }
+//    @CrossOrigin
+//    @PostMapping("/api/seat/update")
+//    public Result update(@RequestBody SeatPOJO seatPOJO) {
+//        seatService.changeSeatState(seatPOJO);
+//        return ResultFactory.buildSuccessResult_p("修改成功", null);
+//    }
 
     /**
      * 根据id删除现有机位

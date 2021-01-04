@@ -116,6 +116,11 @@ public class UserService {
         return appointmentDAO.findAppointmentPOJOSByStudentId(studentId);
     }
 
+    public void appointmentExp(String studentId, int labId, int seatId, int time) {
+        AppointmentPOJO appointmentPOJO = new AppointmentPOJO(studentId, labId, seatId, time);
+        appointmentDAO.save(appointmentPOJO);
+    }
+
     /**
      * 根据学生 ID 查询 实验对象
      *

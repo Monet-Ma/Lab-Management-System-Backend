@@ -66,12 +66,13 @@ public class SeatService {
     /**
      * 更改当前机位状态
      */
-    public void changeSeatState(SeatPOJO seatPOJO) {
-        if (seatPOJO.getState() == 1) {
-            seatPOJO.setState(0);
-        } else {
-            seatPOJO.setState(1);
-        }
+    public void changeSeatState(int seatId, int labId, int timeState) {
+//        if (seatPOJO.getState() == 1) {
+//            seatPOJO.setState(0);
+//        } else {
+//            seatPOJO.setState(1);
+//        }
+        SeatPOJO seatPOJO = new SeatPOJO(seatId, labId, timeState);
         seatDAO.save(seatPOJO);
     }
 

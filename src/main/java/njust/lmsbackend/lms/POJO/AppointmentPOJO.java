@@ -43,6 +43,13 @@ public class AppointmentPOJO {
     public AppointmentPOJO() {
     }
 
+    public AppointmentPOJO(String studentId, int labId, int seat_id, int time) {
+        this.studentId = studentId;
+        this.labId = labId;
+        this.seat_id = seat_id;
+        this.time = time;
+    }
+
     public AppointmentPOJO(String studentId, int labId, int seat_id, int time, String teacherName, String address, String expName, String expId, String studentName) {
         this.studentId = studentId;
         this.labId = labId;

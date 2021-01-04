@@ -5,6 +5,7 @@ import njust.lmsbackend.lms.Result.Result;
 import njust.lmsbackend.lms.Result.ResultFactory;
 import njust.lmsbackend.lms.Service.ComputerLabService;
 import njust.lmsbackend.lms.Service.ExperimentService;
+import njust.lmsbackend.lms.Service.SeatService;
 import njust.lmsbackend.lms.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,8 @@ public class UserController {
     ExperimentService experimentService;
     @Autowired
     ComputerLabService computerLabService;
+    @Autowired
+    SeatService seatService;
 
     /**
      * 列出所有用户
@@ -185,5 +188,18 @@ public class UserController {
         }
     }
 
+    @CrossOrigin
+    @GetMapping("/api/user/appointment")
+    public Result appointmentExp(String studentId, int labId, int seatId, int time) {
+        userService.appointmentExp(studentId, labId, seatId, time);
+        int timeState = Integer.parseInt(seatService.listSeatState(seatId, labId));
+        if (timeState == 0) {
+            timeState = time;
+        } else {
+            timeState = timeState * 10 + time;
+        }
+        seatService.changeSeatState(seatId, labId, timeState);
+        return ResultFactory.buildSuccessResult_p("预约成功", null);
+    }
 
 }
