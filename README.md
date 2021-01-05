@@ -2,25 +2,11 @@
 
 ## 软件项目管理后端
 
+### 拉下项目配置maven即可启动，测试程序在Controller中的HelloController中。运行**LmsApplication**即可。
+
 ### application.properties需要添加的东西
 
-### 开发环境 IDEA2020.3.1 JDK11
-### 将此项目导入IDEA更新pom.xml文件之后即可运行
-
 ```
-server.port = 8998
-spring.datasource.url=jdbc:mysql://localhost:3306/open_exp_system?useUnicode=true&characterEncoding=UTF-8&useSSL=false
-spring.datasource.username=root
-spring.datasource.password=root
-#以上改为你自己的数据源
-
-spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-spring.jpa.open-in-view=true
-spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.format_sql=true
-
-logging.level.org.hibernate.type.descriptor.sql.BasicBinder=trace
 ## MULTIPART (MultipartProperties)
 # 开启 multipart 上传功能
 spring.servlet.multipart.enabled=true
